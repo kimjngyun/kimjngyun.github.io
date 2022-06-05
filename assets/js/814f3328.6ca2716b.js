@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktew=self.webpackChunktew||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"\ucd5c\uadfc \ud3ec\uc2a4\ud2b8","items":[{"title":"TEST","permalink":"/mdx-blog-post"}]}')}}]);
