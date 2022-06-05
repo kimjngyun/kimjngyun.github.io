@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>tew Blog</title>
+        <link>https://kimjngyun.github.io/</link>
+        <description>tew Blog</description>
+        <lastBuildDate>Sun, 05 Jun 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>ko</language>
+        <item>
+            <title><![CDATA[TEST]]></title>
+            <link>https://kimjngyun.github.io/mdx-blog-post</link>
+            <guid>mdx-blog-post</guid>
+            <pubDate>Sun, 05 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[테스트]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="테스트">테스트<a class="hash-link" href="#테스트" title="제목으로 바로 가기">​</a></h2>]]></content:encoded>
+            <category>Javascript</category>
+        </item>
+    </channel>
+</rss>
