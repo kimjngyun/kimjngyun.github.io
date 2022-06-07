@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktew=self.webpackChunktew||[]).push([[702],{5230:function(a){a.exports=JSON.parse('{"label":"Javascript","permalink":"/tags/javascript","allTagsPath":"/tags","count":1}')}}]);
