@@ -4,7 +4,7 @@ authors: [jngyun]
 tags: [Javascript]
 ---
 
-> ## TL;DL
+> ## TL;DR
 >
 > 자바스크립트의 프로퍼티 어트리뷰트에 대해서 알아봅시다.
 

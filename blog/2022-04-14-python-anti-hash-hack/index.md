@@ -4,7 +4,7 @@ authors: [jngyun]
 tags: [Python]
 ---
 
-> ## TL;DL
+> ## TL;DR
 >
 > 특정 상황에서 파이썬의 dict와 set은 $O(n^2)$으로 동작합니다.
 
