@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktew=self.webpackChunktew||[]).push([[964],{8866:function(a){a.exports=JSON.parse('[{"label":"Python","permalink":"/tags/python","count":2},{"label":"Javascript","permalink":"/tags/javascript","count":3},{"label":"Translate","permalink":"/tags/translate","count":1}]')}}]);
