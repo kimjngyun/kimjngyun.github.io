@@ -1,20 +1,22 @@
 ---
-title: Asynchronous stack traces - why await beats Promese#then()
+title: Asynchronous stack traces
 authors: [jngyun]
 tags: [Javascript, Translate]
 ---
 
-> ## TL;DR
->
-> `Promise`들을 직접 사용하는 것과 비교하여 `async` 와 `await`는 코드를 더 가독성있게 만들어줄뿐만 아니라 자바스크립트 엔젠단에서 어떤 특별한 최적화를 가능하게 해주기도 합니다. 이번 글에서는 비동기 코드를 위한 스택 추적을 포함한 최적화에 대한 내용을 다룹니다.
+> ### TL;DR
 
-## Intro
+`Promise`들을 직접 사용하는 것과 비교하여 `async` 와 `await`는 코드를 더 가독성있게 만들어줄뿐만 아니라 자바스크립트 엔젠단에서 어떤 특별한 최적화를 가능하게 해주기도 합니다. 이번 글에서는 비동기 코드를 위한 스택 추적을 포함한 최적화에 대한 내용을 다룹니다.
+
+<!--truncate-->
+
+### Intro
 
 바닐라 프라미스와 `await`의 차이는 `promise.then(X)`은 콜백 체인에 X 호출을 추가한 후 현재 함수의 실행을 계속하는 반면에 `await X()`는 현재 함수의 실행을 실행을 중지합니다. 스택 추적의 문맥에서 이 차이는 상당히 중요합니다.
 
 프라미스 체인(desugared or not)이 처리되지 않은 예외를 임의의 시점에서 발생시키면 자바스크립트 엔진은 오류 메세지와 유용한 스택 추적을 제공합니다. 개발자로서 당신은 바닐라 프라미스를 쓰든 `async`/`await`를 쓰든지에 상관없이 이것을 기대합니다.
 
-## Vanilla Promises
+### Vanilla Promises
 
 비동기 함수 `b`가 이행될때 호출되는 `c`가 호출되는 시나리오를 가정해봅시다.
 
@@ -35,7 +37,7 @@ const a = () => {
 
 스택 추적을 캡처링하는 것은 시간이 소모되고, 이것들을 저장하기 위해서는 메모리가 소모됩니다.
 
-## `async`/`await`
+### `async`/`await`
 
 여기 바닐라 프라미스 대신 `async`/`await`을 이용한 동일한 프로그램이 있습니다.
 
@@ -48,7 +50,7 @@ const a = async () => {
 
 `await`과 함께 우리는 `await` 호출 시 스택 추적을 수집하지 않더라도 콜 체인을 복원할 수 있습니다. 이것은 `b`가 이행되기를 기다리면서 `a`가 중지되기 때문에 가능합니다. 만약 `b`가 예외를 던지면 스택 추적은 이러한 방식으로 필요에 따라 재구성될 수 있습니다. 만약 `c`가 예외를 던지면 스택 추적은 동기 함수에 대한 것과 마찬가지로 구성될 수 있습니다. 왜냐하면 여전히 `a`내에 있기 때문이죠.
 
-## Recommendations
+### Recommendations
 
 겉보기에는 단순히 문법적 설탕(syntax sugar)처럼 보이는 대부분의 ECMAScript의 기능들처럼, `async`/`await`는 그 이상의 의미를 가집니다.
 
@@ -61,6 +63,6 @@ V8은 아직 이 최적화를 구현하지 않았지만, 이 조언을 따르면
 
 ---
 
-### 원문
+#### 원문
 
 [Asynchronous stack traces: why await beats Promise#then()](https://mathiasbynens.be/notes/async-stack-traces)

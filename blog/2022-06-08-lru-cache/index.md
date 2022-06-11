@@ -4,11 +4,13 @@ authors: [jngyun]
 tags: [Python, Javascript]
 ---
 
-> ## TL;DR
->
-> **LRU Cache**는 Least-recently-used cache의 약자입니다. 이 글에서는 파이썬 functools의 lru_cache 데코레이터에 대해 소개합니다.
+> ### TL;DR
 
-## LRU Cache
+**LRU Cache**는 Least-recently-used cache의 약자입니다. 이 글에서는 파이썬 functools의 lru_cache 데코레이터에 대해 소개합니다.
+
+<!--truncate-->
+
+### LRU Cache
 
 LRU는 OS의 페이지 교체 알고리즘의 하나로 가장 오래 사용하지 않은 페이지를 교체하는 기법입니다. 캐시 공간이 부족하면 가장 최근에 사용하지 않은 항목을 제거합니다.
 
@@ -16,7 +18,7 @@ LRU는 OS의 페이지 교체 알고리즘의 하나로 가장 오래 사용하�
 
 위의 예시에서 A - B - C - D - E - D - F 순으로 조회합니다. 괄호 안의 숫자는 타임스탬프입니다. 숫자가 작을수록 오래된 데이터입니다. 즉 캐시가 가득찬 경우에 가장 숫자가 작은 데이터가 방출되고 그 자리에 새 데이터가 캐시에 저장됩니다.
 
-## `@lru_cache` In Python
+### `@lru_cache` In Python
 
 Python에서는 내장라이브러리인 functools에서 lru_cache 데코레이터를 제공해줍니다.
 
@@ -98,13 +100,13 @@ CacheInfo(hits=98, misses=101, maxsize=128, currsize=101)
 
 [functools.py](https://github.com/python/cpython/blob/3.10/Lib/functools.py#L525)
 
-## `@cache` in Python
+### `@cache` in Python
 
 단순하고 가벼운 무제한 함수 캐시입니다. `@lru_cache(maxsize=None)`와 같은 것을 반환하여 이전 값을 제거할 필요가 없기 때문에 크기 제한이 있는 `lru_cache()` 보다 작고 빠릅니다.
 
 Python 3.9에 추가되었습니다.
 
-## 자바스크립트에서 구현
+### 자바스크립트에서 구현
 
 작년에 웹크롤링한 결과를 캐싱해야하는 과제가 있었는데, 해당 과제를 진행하면서 이용했던 LRU Cache 클래스입니다. 구현 목표로 각 항목에 대한 적중 횟수를 카운트해야해서 이에 대한 구현을 추가한 녀석입니다.
 
@@ -183,7 +185,7 @@ export default class LRUCache {
 
 ---
 
-### 참고
+#### 참고
 
 [functools](https://docs.python.org/3/library/functools.html)
 

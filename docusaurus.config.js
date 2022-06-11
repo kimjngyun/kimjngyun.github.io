@@ -35,11 +35,14 @@ const config = {
         docs: false,
         blog: {
           routeBasePath: "/",
+          blogTitle: "tew",
+          blogDescription: "blog",
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/kimjngyun/kimjngyun.github.io/edit/main",
           blogSidebarTitle: "최근 포스트",
+          blogSidebarCount: 0,
+          blogListComponent: "@theme/BlogListPage",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -58,10 +61,16 @@ const config = {
       navbar: {
         title: "tew",
         items: [
-          { to: "/archive", label: "archive", position: "left" },
           {
-            href: "https://github.com/kimjngyun",
-            label: "GitHub",
+            to: "/tags",
+            activeBasePath: "/tags",
+            label: "tags",
+            position: "right",
+          },
+          {
+            to: "/archive",
+            activeBasePath: "/archive",
+            label: "archive",
             position: "right",
           },
         ],

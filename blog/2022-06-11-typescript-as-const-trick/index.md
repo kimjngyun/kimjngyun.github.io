@@ -1,18 +1,21 @@
 ---
 title: The Typescript "as const" trick
+description: 타입스크립트의 const assertions에 대해서 알아봅시다.
 authors: [jngyun]
 tags: [Typescript]
 ---
 
 > ## TL;DR
->
-> ```typescript
-> const numbers = [1, 2, 3, 4, 5] as const;
-> type Numbers = typeof numbers[number];
-> // type Numbers = 1 | 2 | 3 | 4 | 5
-> ```
 
-## 배열을 `as const`으로 하면 뭐가 달라지는데?
+```typescript
+const numbers = [1, 2, 3, 4, 5] as const;
+type Numbers = typeof numbers[number];
+// type Numbers = 1 | 2 | 3 | 4 | 5
+```
+
+<!--truncate-->
+
+### 배열을 `as const`으로 하면 뭐가 달라질까?
 
 [type-challenges 18](https://github.com/type-challenges/type-challenges/blob/main/questions/00018-easy-tuple-length/README.ko.md)을 하던 중 궁금한 점이 생겼습니다. 문제는 다음과 같습니다.
 
@@ -44,7 +47,7 @@ tsc는 `numbersAsConst`는 `readonly [1, 2, 3, 4, 5]` 라는 타입으로, `numb
 
 `numbersAsConst` 와 같이 배열을 `const`로 단언하면 타입스크립트는 해당 배열에 들어갈 수 있는 항목의 종류를 쉽게 추론할 수 있습니다. 또한 모든 것들이 상수가 되고 _readonly_ 플래그를 가지게 됩니다. 그리고 우리는 배열에 넣은 것을 정확한 순서와 타입으로 볼 수 있지요.
 
-## The Problem
+### The Problem
 
 이것은 언제 유용할까요? 다음 상황을 봅시다.
 
@@ -79,7 +82,7 @@ function getAnimal(name: Animal) {
 
 그런데 우리가 원하는 것은 `animals` 배열의 값들을 일일히 유니온 타입으로 복제하는 것이 아닙니다. 배열에서 타입을 만들어봅시다.
 
-## Inferred Array Types
+### Inferred Array Types
 
 ```typescript
 const animals = ["cat", "dog", "mouse"];
@@ -89,7 +92,7 @@ const animals = ["cat", "dog", "mouse"];
 
 위에서 `animals`는 스트링의 배열로 초기화했기 때문에 `string[]` 타입으로 추론되었습니다. 만약 `const animals = ["cat", "dog", 5];` 라고 초기화 했다면 `const animals: (string | number)[]` 타입으로 추론되었겠죠.
 
-## Const Assertion
+### Const Assertion
 
 `string[]` 타입이 되는 것을 강요하지 않기 위해서 다음과 같은 작업을 할 수 있습니다.
 
@@ -107,7 +110,7 @@ const animals = ["cat", "dog", "mouse"] as ["cat", "dog", "mouse"];
 // const animals: readonly['cat', 'dog', 'mouse']
 ```
 
-## Getting a type from our array
+### Getting a type from our array
 
 이제 `typeof`를 통해 `aniamls`의 타입을 얻을 수 있습니다.
 
@@ -118,7 +121,7 @@ type Animal = typeof animals[number];
 // type Animal = 'cat' | 'dog' | 'mouse'
 ```
 
-## Array of Objects
+### Array of Objects
 
 인덱스 시그니처와 프로퍼티 키를 제공하여 다음과 같이 사용할 수 있습니다.
 
@@ -134,7 +137,7 @@ type Animal = typeof animals[number]["name"];
 /// type Animal = "Fluffy" | "Fido" | "Trevor"
 ```
 
-## 결론
+### 결론
 
 `const assertions`을 이용하면
 
@@ -142,7 +145,7 @@ type Animal = typeof animals[number]["name"];
 2. 객체 리터럴은 _readonly_ 프로퍼티를 가집니다.
 3. 배열 리터럴은 _readonly_ 튜플이 됩니다.
 
-## 참고
+### 참고
 
 [types from array](https://steveholgado.com/typescript-types-from-arrays/)
 
