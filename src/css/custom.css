@@ -21,6 +21,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
+  background-color: rgb(36, 37, 38);
   --ifm-color-background-blur: rgba(255, 255, 255, 0.1);
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
