@@ -1,4 +1,5 @@
-import React, { MouseEventHandler, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import Footer from "@theme/Footer";
 import _, { min } from "lodash";
 import "./styles.css";
 
@@ -98,6 +99,9 @@ const Home = (): JSX.Element => {
         <a id="li" href="/blog/archive">
           archive
         </a>
+      </div>
+      <div style={{ position: "absolute", bottom: "0px" }}>
+        <Footer />
       </div>
     </div>
   );

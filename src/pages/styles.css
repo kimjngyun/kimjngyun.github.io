@@ -2,10 +2,6 @@ a {
   display: block;
 }
 
-#li:hover {
-  text-decoration: none;
-}
-
 #container {
   position: relative;
   height: 100vh;
@@ -17,6 +13,11 @@ a {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   z-index: 100;
   mix-blend-mode: luminosity;
+}
+
+#li:hover {
+  text-decoration: none;
+  mix-blend-mode: none;
 }
 
 #menu {
