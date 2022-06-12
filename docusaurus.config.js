@@ -34,7 +34,7 @@ const config = {
       ({
         docs: false,
         blog: {
-          routeBasePath: "/",
+          routeBasePath: "blog",
           blogTitle: "tew",
           blogDescription: "blog",
           showReadingTime: true,
@@ -62,13 +62,13 @@ const config = {
         title: "tew",
         items: [
           {
-            to: "/tags",
+            to: "/blog/tags",
             activeBasePath: "/tags",
             label: "tags",
             position: "right",
           },
           {
-            to: "/archive",
+            to: "/blog/archive",
             activeBasePath: "/archive",
             label: "archive",
             position: "right",
