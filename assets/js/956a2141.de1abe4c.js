@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktew=self.webpackChunktew||[]).push([[666],{2510:function(a){a.exports=JSON.parse('{"label":"Translate","permalink":"/blog/tags/translate","allTagsPath":"/blog/tags","count":1}')}}]);
