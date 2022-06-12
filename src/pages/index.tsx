@@ -67,11 +67,10 @@ const Home = (): JSX.Element => {
 
   return (
     <div id="container">
-      <div id="mask"></div>
-      <div>
+      <>
         <Circle radius={radius} x={x} y={y} />
-      </div>
-
+        <div id="mask"></div>
+      </>
       <div id="menu">
         <div id="li">tew</div>
         <a id="li" href="/blog">

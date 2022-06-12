@@ -1,10 +1,8 @@
 a {
-  color: white;
-  text-decoration: none;
   display: block;
 }
 
-a:hover {
+#li:hover {
   text-decoration: none;
 }
 
@@ -29,7 +27,7 @@ a:hover {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  z-index: -2;
+  z-index: -200;
   transition: 1s;
 }
 
@@ -39,8 +37,7 @@ a:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(40px);
+  /* background: var(--ifm-color-background-blur); */
   backdrop-filter: blur(40px);
-  z-index: -1;
+  z-index: -199;
 }
