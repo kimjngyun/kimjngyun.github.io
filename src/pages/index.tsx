@@ -1,8 +1,9 @@
 import React, { MouseEventHandler, useEffect, useMemo, useState } from "react";
-import _, { max, min } from "lodash";
-import "./style.css";
+import _, { min } from "lodash";
+import "./styles.css";
 
 interface CircleProps {
+  id?: number;
   radius: number;
   x?: number;
   y?: number;
@@ -11,10 +12,10 @@ interface CircleProps {
 }
 
 const Circle = (props: CircleProps): JSX.Element => {
-  const { radius, x, y } = props;
+  const { id, radius, x, y, color1, color2 } = props;
   return (
     <svg
-      id="svg"
+      className={"svg" + (id === 2 ? " second" : "")}
       width="500"
       height="500"
       viewBox="0 0 500 500"
@@ -22,23 +23,23 @@ const Circle = (props: CircleProps): JSX.Element => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
-        cx={250 - x}
-        cy={250 - y}
-        r={min([250, radius])}
-        fill="url(#paint0_linear_104_2)"
+        cx={250 + x}
+        cy={250 + y}
+        r={min([125, radius])}
+        fill={`url(#paint0_linear_104_${id})`}
         style={{ transition: "1s" }}
       />
       <defs>
         <linearGradient
-          id="paint0_linear_104_2"
+          id={`paint0_linear_104_${id}`}
           x1="0"
           y1="0"
           x2="500"
           y2="500"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#F5DF4D" />
-          <stop offset="1" stopColor="#FF6F61" />
+          <stop stopColor={color1} />
+          <stop offset="1" stopColor={color2} />
         </linearGradient>
       </defs>
     </svg>
@@ -46,13 +47,13 @@ const Circle = (props: CircleProps): JSX.Element => {
 };
 
 const Home = (): JSX.Element => {
-  const [radius, setRadius] = useState(125);
+  const [radius, setRadius] = useState(50);
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
 
   const changeCenter = (event) => {
     setRadius(
-      125 + Math.sqrt(Math.abs(-window.innerWidth / 2 + event.clientX)) * 100
+      40 + Math.sqrt(Math.abs(-window.innerWidth / 2 + event.pageX)) * 20
     );
     setX((-window.innerWidth / 2 + event.clientX) / 4);
     setY((-window.innerHeight / 2 + event.clientY) / 4);
@@ -68,7 +69,22 @@ const Home = (): JSX.Element => {
   return (
     <div id="container">
       <>
-        <Circle radius={radius} x={x} y={y} />
+        <Circle
+          radius={radius}
+          x={x}
+          y={y}
+          color1="#F5DF4D"
+          color2="#FF6F61"
+          id={1}
+        />
+        <Circle
+          radius={radius * 0.8}
+          x={-x}
+          y={-y}
+          color1="#0f4c81"
+          color2="#7bc4c4"
+          id={2}
+        />
         <div id="mask"></div>
       </>
       <div id="menu">
