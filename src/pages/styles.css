@@ -36,9 +36,13 @@ a {
   animation-delay: 0s;
 }
 
-.second {
+.svg--2 {
   animation-name: moveCircle2;
-  mix-blend-mode: lighten;
+  mix-blend-mode: hue;
+}
+.svg--3 {
+  animation-name: moveCircle2;
+  mix-blend-mode: multiply;
 }
 
 @keyframes moveCircle1 {
@@ -65,12 +69,24 @@ a {
   }
 }
 
+@keyframes moveCircle3 {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(-200px) translateY(-100px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
 #mask {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(100px);
   z-index: -199;
 }

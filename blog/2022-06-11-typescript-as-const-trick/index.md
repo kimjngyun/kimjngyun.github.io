@@ -5,8 +5,6 @@ authors: [jngyun]
 tags: [Typescript]
 ---
 
-> ## TL;DR
-
 ```typescript
 const numbers = [1, 2, 3, 4, 5] as const;
 type Numbers = typeof numbers[number];

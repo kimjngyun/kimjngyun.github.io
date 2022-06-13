@@ -1,51 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Footer from "@theme/Footer";
-import _, { min } from "lodash";
+import _ from "lodash";
+import Circle from "./Circle";
 import "./styles.css";
-
-interface CircleProps {
-  id?: number;
-  radius: number;
-  x?: number;
-  y?: number;
-  color1?: string;
-  color2?: string;
-}
-
-const Circle = (props: CircleProps): JSX.Element => {
-  const { id, radius, x, y, color1, color2 } = props;
-  return (
-    <svg
-      className={"svg" + (id === 2 ? " second" : "")}
-      width="500"
-      height="500"
-      viewBox="0 0 500 500"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle
-        cx={250 + x}
-        cy={250 + y}
-        r={min([125, radius])}
-        fill={`url(#paint0_linear_104_${id})`}
-        style={{ transition: "1s" }}
-      />
-      <defs>
-        <linearGradient
-          id={`paint0_linear_104_${id}`}
-          x1="0"
-          y1="0"
-          x2="500"
-          y2="500"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor={color1} />
-          <stop offset="1" stopColor={color2} />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
 
 const Home = (): JSX.Element => {
   const [radius, setRadius] = useState(50);
@@ -53,18 +10,19 @@ const Home = (): JSX.Element => {
   const [y, setY] = useState(0);
 
   const changeCenter = (event) => {
-    setRadius(
-      40 + Math.sqrt(Math.abs(-window.innerWidth / 2 + event.pageX)) * 20
-    );
-    setX((-window.innerWidth / 2 + event.clientX) / 4);
-    setY((-window.innerHeight / 2 + event.clientY) / 4);
+    console.log("hi");
+    const dx = -window.innerWidth / 2 + event.clientX;
+    const dy = -window.innerHeight / 2 + event.clientY;
+    setRadius(50 + Math.sqrt(dx ** 2 + dy ** 2) * 10);
+    setX(dx / 4);
+    setY(dy / 4);
   };
 
-  const throttledHandler = useMemo(() => _.throttle(changeCenter, 500), []);
+  const throttledHandler = useMemo(() => _.throttle(changeCenter, 300), []);
 
   useEffect(() => {
-    window.addEventListener("mousemove", throttledHandler);
-    return document.removeEventListener("mousemove", throttledHandler);
+    document.addEventListener("mousemove", throttledHandler);
+    return () => document.removeEventListener("mousemove", throttledHandler);
   });
 
   return (
@@ -85,6 +43,14 @@ const Home = (): JSX.Element => {
           color1="#0f4c81"
           color2="#7bc4c4"
           id={2}
+        />
+        <Circle
+          radius={radius * 0.5}
+          x={x - 50}
+          y={-y + 50}
+          color1="#ad5e99"
+          color2="#88b04b"
+          id={3}
         />
         <div id="mask"></div>
       </>

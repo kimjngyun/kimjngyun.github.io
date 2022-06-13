@@ -4,8 +4,6 @@ authors: [jngyun]
 tags: [Python, Javascript]
 ---
 
-> ### TL;DR
-
 **LRU Cache**는 Least-recently-used cache의 약자입니다. 이 글에서는 파이썬 functools의 lru_cache 데코레이터에 대해 소개합니다.
 
 <!--truncate-->

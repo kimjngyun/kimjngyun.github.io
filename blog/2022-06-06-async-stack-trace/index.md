@@ -4,8 +4,6 @@ authors: [jngyun]
 tags: [Javascript, Translate]
 ---
 
-> ### TL;DR
-
 `Promise`들을 직접 사용하는 것과 비교하여 `async` 와 `await`는 코드를 더 가독성있게 만들어줄뿐만 아니라 자바스크립트 엔젠단에서 어떤 특별한 최적화를 가능하게 해주기도 합니다. 이번 글에서는 비동기 코드를 위한 스택 추적을 포함한 최적화에 대한 내용을 다룹니다.
 
 <!--truncate-->
