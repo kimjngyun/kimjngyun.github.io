@@ -8,7 +8,6 @@
 :root {
   --ifm-background-color: #dddddd;
   --ifm-navbar-background-color: transparent;
-  --ifm-footer-background-color: transparent;
   --ifm-link-color: #000000;
   --ifm-footer-link-color: #000000;
   --ifm-color-primary: #0f4c81;
@@ -26,6 +25,7 @@
 [data-theme="dark"] {
   background-color: #222;
   --ifm-background-color: #222222;
+  --ifm-navbar-background-color: transparent;
   --ifm-footer-background-color: #222222;
   --ifm-link-color: #ffffff;
   --ifm-footer-link-color: #ffffff;

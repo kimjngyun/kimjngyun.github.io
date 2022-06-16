@@ -1,5 +1,6 @@
 ---
 title: Property Attribute
+description: 프로퍼티 어트리뷰트
 authors: [jngyun]
 tags: [Javascript]
 ---

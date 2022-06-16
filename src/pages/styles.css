@@ -1,7 +1,16 @@
-#container {
+.container {
+  margin: 0;
+}
+
+.section {
   position: relative;
   height: 100vh;
   width: 100vw;
+  padding: 2rem;
+}
+
+.circles {
+  overflow: hidden;
 }
 
 #li {
@@ -24,8 +33,8 @@
 }
 
 .svg {
-  position: absolute;
-  width: calc(100vw);
+  position: fixed;
+  width: 100vw;
   height: 100vh;
   z-index: -200;
   transition: 1s;
@@ -40,8 +49,8 @@
   mix-blend-mode: hue;
 }
 .svg--3 {
-  animation-name: moveCircle2;
-  mix-blend-mode: multiply;
+  animation-name: moveCircle3;
+  mix-blend-mode: color-burn;
 }
 
 @keyframes moveCircle1 {
@@ -81,11 +90,22 @@
 }
 
 #mask {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   backdrop-filter: blur(100px);
   z-index: -199;
+  transition: 0.5s;
+}
+
+.inner {
+  margin: 0;
+  padding: 5rem;
+}
+
+.title {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 2rem;
 }
